@@ -1,4 +1,9 @@
-.home {
+.home,
+.compare-page,
+.profile,
+.developer,
+.sign-up,
+.contact-us {
   background-color: black;
   color: white;
   height: 91vh;

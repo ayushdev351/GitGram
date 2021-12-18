@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -10,30 +10,66 @@ function Navbar() {
         <h1 className="nav-left">GITBOOK</h1>
       </Link>
       <div className="nav-center">
-        <Link to="/">
+        <NavLink
+          to="/"
+          exact
+          style={(isActive) => ({
+            filter: isActive ? "brightness(2)" : ""
+          })}
+        >
           <i className="fas fa-home nav-item item-one " title="Home" />
-        </Link>
-        <Link to="/compare-profile">
+        </NavLink>
+        <NavLink
+          to="/compare-profile"
+          exact
+          style={(isActive) => ({
+            filter: isActive ? "brightness(2)" : ""
+          })}
+        >
           <i
             className="fas fa-less-than nav-item item-two"
             title="Compare Profile"
           />
-        </Link>
-        <Link to="/profile">
+        </NavLink>
+        <NavLink
+          to="/profile"
+          exact
+          style={(isActive) => ({
+            filter: isActive ? "brightness(2)" : ""
+          })}
+        >
           <i className="fas fa-user nav-item item-three" title="Your Profile" />
-        </Link>
-        <Link to="/developer">
+        </NavLink>
+        <NavLink
+          to="/developer"
+          exact
+          style={(isActive) => ({
+            filter: isActive ? "brightness(2)" : ""
+          })}
+        >
           <i className="fas fa-code nav-item item-four" title="Developer" />
-        </Link>
+        </NavLink>
       </div>
       <div className="nav-right">
-        <Link to="/sign-up">
+        <NavLink
+          to="/sign-up"
+          exact
+          style={(isActive) => ({
+            filter: isActive ? "brightness(2)" : ""
+          })}
+        >
           <i className="fas fa-user-plus nav-item" title="profile" />
-        </Link>
-        <Link to="/contact-us">
+        </NavLink>
+        <NavLink
+          to="/contact-us"
+          exact
+          style={(isActive) => ({
+            filter: isActive ? "brightness(2)" : ""
+          })}
+        >
           <i className="fas fa-headphones-alt nav-item" />
-        </Link>
-        <i className="fas fa-random nav-item" />
+        </NavLink>
+        <i className="fas fa-random nav-item" titlw="Contact Us" />
       </div>
     </div>
   );
