@@ -3,7 +3,7 @@ import "../../App.css";
 import "../pages.css";
 import "./Profile.css";
 
-export default function Profile() {
+export default function Profile(props) {
   const [name, setName] = useState("John Singh");
   const [userName, setUserName] = useState("John1245");
   const [followers, setFollowers] = useState("24");

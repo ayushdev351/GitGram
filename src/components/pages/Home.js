@@ -3,6 +3,8 @@ import "../../App.css";
 import "../pages.css";
 import "./Home.css";
 
+import Profile from "./Profile";
+
 export default function Home() {
   const [users, setUsers] = useState([]);
   const [userInput, setUserInput] = useState("");
@@ -21,6 +23,8 @@ export default function Home() {
     fetch(`https://api.github.com/search/users?q=location:${userInput}`)
       .then((res) => res.json())
       .then((data) => setData(data));
+
+    setUserInput("");
   };
 
   return (
@@ -28,6 +32,7 @@ export default function Home() {
       <form className="form" onSubmit={submitHandler}>
         <input
           type="text"
+          value={userInput}
           placeholder="Enter Location Here"
           className="user-input"
           onChange={inputHandler}
@@ -39,6 +44,7 @@ export default function Home() {
           {users.map((user) => (
             <div key={user.id}>
               <p>{user.login}</p>
+
               <br />
               <br />
             </div>
