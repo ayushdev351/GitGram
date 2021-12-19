@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../../App.css";
 import "../pages.css";
+import "./Profile.css";
 
 export default function Profile() {
   const [name, setName] = useState("");
@@ -12,15 +13,6 @@ export default function Profile() {
   const [location, setLocation] = useState("");
   const [bio, setBio] = useState("");
   const [userInput, setUserInput] = useState("");
-  const [error, setError] = useState("");
-
-  // useEffect(() => {
-  //   fetch("https://api.github.com/users/example")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setData(data);
-  //     });
-  // }, []);
 
   const setData = ({
     name,
@@ -54,26 +46,27 @@ export default function Profile() {
       .then((data) => {
         setData(data);
       });
+    setUserInput("");
   };
 
   return (
     <div className="profile">
-      <form onSubmit={submitHandler}>
-        <label for="user">UserName</label>
-        <br />
+      <form onSubmit={submitHandler} className="form">
         <input
           type="text"
-          id="user"
+          value={userInput}
           className="userInput"
-          placeholder="Enter your user name here"
+          placeholder="Enter your user name"
+          autocomplete="off"
+          onfocus="this.value=''"
           onChange={changeHandler}
         />
-        <button type="submit">Search</button>
+        <button type="submit" onCLick={submitHandler} className="btn">
+          Search
+        </button>
       </form>
-      <div>
-        <br />
-        <br />
-        <img src={avatar} wrapped alt="user" ui={false} />
+      <div className="profile-card">
+        <img src={avatar} wrapped alt="user" className="profile-img" />
         <br />
         <h3>{name}</h3>
         <p>{bio}</p>
