@@ -77,7 +77,7 @@ export default function Profile() {
         <br />
         <div className="card-head">
           <h2>{name}</h2>
-          <h4>{bio}</h4>
+          <h4 className="bio">{bio}</h4>
           <h4 className="user-location">{location}</h4>
         </div>
         <div className="card-content">
