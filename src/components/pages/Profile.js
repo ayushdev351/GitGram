@@ -64,32 +64,34 @@ export default function Profile() {
           value={userInput}
           className="userInput"
           placeholder="Enter your user name"
-          autocomplete="off"
-          onfocus="this.value=''"
+          autoComplete="off"
+          onFocus={() => {
+            this.value = "";
+          }}
           onChange={changeHandler}
         />
-        <button type="submit" onCLick={submitHandler} className="btn">
+        <button type="submit" onClick={submitHandler} className="btn">
           Search
         </button>
       </form>
       <div className="profile">
-      <div className="profile-card">
-        <img src={avatar} wrapped alt="user" className="profile-img" />
-        <br />
-        <div className="card-head">
-          <h2>{name}</h2>
-          <h4 className="bio">{bio}</h4>
-          <h4 className="user-location">{location}</h4>
-        </div>
-        <div className="card-content">
-          <p>User Name : {userName}</p>
-          <p>Followers : {followers}</p>
-          <p>Following : {following}</p>
-          <p>User repo : {repos}</p>
-          <p>Hireable : {status}</p>
+        <div className="profile-card">
+          <img src={avatar} alt="user" className="profile-img" />
+          <br />
+          <div className="card-head">
+            <h2>{name}</h2>
+            <h4 className="bio">{bio}</h4>
+            <h4 className="user-location">{location}</h4>
+          </div>
+          <div className="card-content">
+            <p>User Name : {userName}</p>
+            <p>Followers : {followers}</p>
+            <p>Following : {following}</p>
+            <p>User repo : {repos}</p>
+            <p>Hireable : {status}</p>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
