@@ -3,7 +3,7 @@ import "../../App.css";
 import "../pages.css";
 import "./Home.css";
 
-import Profile from "./Profile";
+import ProfileReuse from "./ProfileReuse";
 
 export default function Home() {
   const [users, setUsers] = useState([]);
@@ -43,8 +43,7 @@ export default function Home() {
         <ul>
           {users.map((user) => (
             <div key={user.id}>
-              <p>{user.login}</p>
-
+              <ProfileReuse fetchedusername={user.login} />
               <br />
               <br />
             </div>
